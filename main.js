@@ -1,16 +1,17 @@
 const addToDoHandler = (e) => {
   e.preventDefault();
-  let toDo = document.getElementById("to-do-value").value;
+  let toDo = document.getElementById("to-do-value");
   let listItem = document.createElement("li");
   listItem.classList.add("list-item");
 
-  listItem.appendChild(document.createTextNode(toDo));
+  listItem.appendChild(document.createTextNode(toDo.value));
   let buttonDlt = document.createElement("button");
   buttonDlt.appendChild(document.createTextNode("X"));
   buttonDlt.classList = "delete-item";
 
   listItem.appendChild(buttonDlt);
   toDoList.appendChild(listItem);
+  toDo.value = "";
 };
 
 const deleteBtnHandler = (e) => {
