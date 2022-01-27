@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To do App</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="app">
+        <header class="header">
+          <h1 class="title">To-Do App</h1>
+          <form class="search-bar">
+            <input
+              type="text"
+              placeholder="Search your To-Do"
+              id="to-do"
+              name="search-to-do"
+            />
+            <input type="submit" />
+          </form>
+        </header>
+
+        <div class="display">
+          <form id="form-to-add" class="add-bar">
+            <input
+              id="to-do-value"
+              type="text"
+              placeholder="New To-Do"
+              name="new-to-do"
+            />
+            <input type="submit" value="add" />
+          </form>
+          <ul id="to-do-list" class="list">
+            <li class="list-item">
+              anything<button class="delete-item">X</button>
+             </li>
+            <li class="list-item">
+              anything<button class="delete-item">X</button>
+            </li>
+            <li class="list-item">
+              anything<button class="delete-item">X</button>
+            </li> 
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
