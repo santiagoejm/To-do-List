@@ -23,9 +23,26 @@ const deleteBtnHandler = (e) => {
   }
 };
 
+const searchFilter = (e) => {
+  e.preventDefault();
+  let search = document.getElementById("to-do").value.toLowerCase();
+  let listItem = toDoList.getElementsByTagName("li");
+  Array.from(listItem).forEach(function (item) {
+    let itemN = item.parentNode.firstChild;
+    // console.log(itemN.firstChild.textContent);
+    if (itemN.textContent.toLowerCase().indexOf(search) != -1) {
+      itemN.style.display = "flex";
+    } else {
+      itemN.style.display = "none";
+    }
+  });
+};
+
 const formToAdd = document.querySelector("#form-to-add");
 const toDoList = document.querySelector("#to-do-list");
 const deleteBtn = document.querySelectorAll(".delete-item");
+const searchForm = document.querySelector("#search-form");
 
 formToAdd.addEventListener("submit", addToDoHandler);
 toDoList.addEventListener("click", deleteBtnHandler);
+searchForm.addEventListener("submit", searchFilter);
