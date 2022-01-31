@@ -23,7 +23,7 @@ const addToDoHandler = (e) => {
 
 const deleteBtnHandler = (e) => {
   try {
-    li = e.target.parentNode;
+    let li = e.target.parentNode;
     toDoList.removeChild(li);
   } catch (error) {
     alert("If you want to delete an Item, please 'Click' on the X");
@@ -35,12 +35,10 @@ const searchFilter = (e) => {
   let search = document.getElementById("to-do").value.toLowerCase();
   let listItem = toDoList.getElementsByTagName("li");
   Array.from(listItem).forEach(function (item) {
-    let itemN = item.parentNode.firstChild;
-    // console.log(itemN.firstChild.textContent);
-    if (itemN.textContent.toLowerCase().indexOf(search) != -1) {
-      itemN.style.display = "flex";
+    if (item.textContent.toLowerCase().indexOf(search) != -1) {
+      item.style.display = "flex";
     } else {
-      itemN.style.display = "none";
+      item.style.display = "none";
     }
   });
 };
