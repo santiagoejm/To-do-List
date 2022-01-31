@@ -1,17 +1,24 @@
+const formToAdd = document.querySelector("#form-to-add");
+const toDoList = document.querySelector("#to-do-list");
+const deleteBtn = document.querySelectorAll(".delete-item");
+const searchForm = document.querySelector("#search-form");
+
 const addToDoHandler = (e) => {
   e.preventDefault();
   let toDo = document.getElementById("to-do-value");
   let listItem = document.createElement("li");
   listItem.classList.add("list-item");
 
-  listItem.appendChild(document.createTextNode(toDo.value));
-  let buttonDlt = document.createElement("button");
-  buttonDlt.appendChild(document.createTextNode("X"));
-  buttonDlt.classList = "delete-item";
+  if (toDo.value) {
+    listItem.appendChild(document.createTextNode(toDo.value));
+    let buttonDlt = document.createElement("button");
+    buttonDlt.appendChild(document.createTextNode("X"));
+    buttonDlt.classList = "delete-item";
 
-  listItem.appendChild(buttonDlt);
-  toDoList.appendChild(listItem);
-  toDo.value = "";
+    listItem.appendChild(buttonDlt);
+    toDoList.appendChild(listItem);
+    toDo.value = "";
+  }
 };
 
 const deleteBtnHandler = (e) => {
@@ -37,11 +44,6 @@ const searchFilter = (e) => {
     }
   });
 };
-
-const formToAdd = document.querySelector("#form-to-add");
-const toDoList = document.querySelector("#to-do-list");
-const deleteBtn = document.querySelectorAll(".delete-item");
-const searchForm = document.querySelector("#search-form");
 
 formToAdd.addEventListener("submit", addToDoHandler);
 toDoList.addEventListener("click", deleteBtnHandler);
